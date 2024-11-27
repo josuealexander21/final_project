@@ -6,6 +6,21 @@ class MoodOutfitSelector:
     such as the weather. It provides mood-based clothing recommendations to align with or
     boost the user's emotional state.
     """
+    # Mood and weather-based outfit suggestions
+    outfit_suggestions = {
+        "happy": {
+            "sunny": ["bright sundress", "colorful t-shirt and shorts", "light linen outfit"],
+            "rainy": ["yellow raincoat", "jeans and waterproof boots", "cute umbrella accessory"],
+            "cold": ["cheerful sweater", "wool scarf and beanie", "layered outfit with boots"],
+            "hot": ["flowy summer dress", "tank top and shorts", "light pastel blouse"]
+        },
+        "calm": {
+            "sunny": ["light blue shirt", "comfortable jeans", "soft cardigan"],
+            "rainy": ["cozy hoodie", "rainproof jacket", "soft scarf"],
+            "cold": ["oversized sweater", "corduroy pants", "knit beanie"],
+            "hot": ["cotton jumpsuit", "linen trousers and top", "simple tank top"]
+        }
+    }
 
     def get_user_mood(self):
         """
@@ -38,3 +53,13 @@ class MoodOutfitSelector:
             print("Please enter a weather condition: sunny, rainy, snow, cold, or hot.")
             weather = input("What's the weather like today? (sunny, rainy, cold, hot): ").lower()
         return weather
+
+    def suggest_outfit(self, mood, weather):
+        """
+        Suggest an outfit based on mood and weather.
+        """
+        try:
+            outfits = self.outfit_suggestions[mood][weather]
+            return random.choice(outfits)
+        except KeyError:
+            return "No outfit suggestions available for this combination."
