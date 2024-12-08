@@ -63,3 +63,20 @@ class MoodOutfitSelector:
             return random.choice(outfits)
         except KeyError:
             return "No outfit suggestions available for this combination."
+    
+    def main():
+        print("Welcome to your personal outfit finder!")
+        moods = list(outfit_suggestions.keys())
+        weather_conditions = ("sunny", "rainy", "cold", "hot")
+
+        mood = get_user_mood(f"What's your current mood? ({', '.join(moods)}): ", moods)
+        weather = get_weather_context(f"What's the weather like? ({', '.join(weather_conditions)}): ", weather_conditions)
+        uplift = suggest_outfit("Would you like an outfit to boost your mood? (yes/no): ", ["yes", "no"])
+
+        outfit = suggest_outfit(mood, weather, boost_mood=(boost == "yes"))
+        print(f"\nHere's your suggested outfit: {outfit}")
+
+if __name__ == "__main__":
+    main()
+
+
