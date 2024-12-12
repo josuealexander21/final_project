@@ -21,7 +21,38 @@ class MoodOutfitSelector:
                 "rainy": ["cozy hoodie", "rainproof jacket", "soft scarf"],
                 "cold": ["oversized sweater", "corduroy pants", "knit beanie"],
                 "hot": ["cotton jumpsuit", "linen trousers and top", "simple tank top"]
+            },
+            "excited": {
+                "sunny": ["bright graphic tee", "denim shorts", "sneakers"],
+                "rainy": ["water-resistant jacket", "fun patterned boots", "rain boots with a pop of color"],
+                "cold": ["bold colored jacket", "jeans with patches", "chunky scarf"],
+                "hot": ["colorful tank top", "high-waisted shorts", "floral skirt"]
+            },
+            "sad": {
+                "sunny": ["cozy oversized sweater", "jeans", "slouchy beanie"],
+                "rainy": ["long cardigan", "dark raincoat", "soft boots"],
+                "cold": ["soft hoodie", "thermal leggings", "fuzzy socks"],
+                "hot": ["loose, comfortable t-shirt", "simple skirt", "casual sandals"]
+            },
+            "anxious": {
+                "sunny": ["relaxed hoodie", "baggy pants", "slip-on sneakers"],
+                "rainy": ["windbreaker jacket", "athletic shoes", "soft scarf"],
+                "cold": ["oversized puffer jacket", "comfy leggings", "fleece-lined gloves"],
+                "hot": ["loose-fitting blouse", "linen shorts", "comfortable sneakers"]
+            },
+            "confident": {
+                "sunny": ["sharp blazer", "tailored pants", "sleek boots"],
+                "rainy": ["stylish trench coat", "high heels", "elegant scarf"],
+                "cold": ["fitted wool coat", "smart trousers", "leather gloves"],
+                "hot": ["vibrant dress", "strappy sandals", "sun hat"]
+            },
+            "nervous": {
+                "sunny": ["casual button-up shirt", "comfortable shorts", "casual loafers"],
+                "rainy": ["simple rain jacket", "comfortable boots", "beanie"],
+                "cold": ["fleece zip-up jacket", "jeans", "scarf"],
+                "hot": ["loose t-shirt", "denim skirt", "sandals"]
             }
+        
         }
 
     def get_user_mood(self):
