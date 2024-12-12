@@ -108,9 +108,7 @@ class MoodOutfitSelector:
             outfits = self.outfit_suggestions[mood][weather]
             return random.choice(outfits)
         except KeyError:
-            return "No outfit suggestions available for this combination."
-
-
+            return "No outfit suggestions available for this combination."        
 def main():
 
     print("Welcome to your personal outfit finder!")
@@ -125,6 +123,47 @@ def main():
     outfit = selector.suggest_outfit(mood, weather, uplift)
     print(f"\nHere's your suggested outfit: {outfit}")
 
+def remove_outfit(self, mood, weather, outfit):
+        """
+        Removes an outfit from the suggestion list.
+
+        Args:
+            mood: The mood category of the outfit.
+            weather: The weather category of the outfit.
+            outfit: The outfit description to remove.
+        """
+        try:
+            self.outfit_suggestions[mood][weather].remove(outfit)
+            print(f"Outfit '{outfit}' has been removed from {mood} mood and {weather} weather.")
+        except (KeyError, ValueError):
+            print("Outfit not found or invalid mood/weather category.")
+
+def view_saved_outfits(self):
+        """
+        Displays the saved outfits from the favorites file.
+        """
+        try:
+            with open("favorite_outfits.txt", "r") as file:
+                saved_outfits = file.readlines()
+            if saved_outfits:
+                print("\nYour favorite outfits:")
+                for i, outfit in enumerate(saved_outfits, start=1):
+                    print(f"{i}. {outfit.strip()}")
+            else:
+                print("\nNo saved outfits yet!")
+        except FileNotFoundError:
+            print("\nNo saved outfits yet!")
+
+def save_outfit(self, outfit):
+        """
+        Saves the favorite outfit for later.
+        
+        Args:
+            outfit: The outfit to save.
+        """
+        with open("favorite_outfits.txt", "a") as file:
+            file.write(outfit + "\n")
+        print(f"Outfit '{outfit}' has been saved to your favorites!")
 
 if __name__ == "__main__":
     main()
