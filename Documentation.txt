@@ -1,0 +1,6 @@
+The project is a mood-based outfit suggestion application that helps users select an outfit based on their current mood and the weather. It allows users to input their mood and weather conditions, and it suggests an outfit accordingly from a predefined list. Users can save and view their favorite outfits, and the program ensures they are always provided with valid suggestions based on available options. The program also allows users to remove saved outfits if needed.
+
+To run the program, users can execute the Python script from the command line using python mood_outfit_selector.py. The program will prompt users to enter their mood and weather conditions, then suggest an outfit based on those inputs. Users can save their favorite outfits, view them later, or remove any saved outfits. The outfits are usually an accessory or one to two items paired together. The project was developed with guidance from Python's official documentation and various programming resources, which provided insights into Python functions, user input handling, and testing practices.
+
+Bibliography:
+https://www.w3schools.com/python/
