@@ -1,5 +1,21 @@
 import random
 
+class Outfit:
+    """
+    Represents an outfit consisting of a single type of clothing.
+
+    Attributes:
+        clothes (str): A string describing the clothing item.
+    
+    Methods:
+        __repr__(): Returns a string representation of the outfit.
+    """
+    def __init__(self, clothes: str):
+        self.clothes = clothes
+
+    def __repr__(self):
+        return self.clothes
+
 class MoodOutfitSelector:
     """
     A program that suggests outfits based on the user's mood and other contextual factors
@@ -11,46 +27,46 @@ class MoodOutfitSelector:
         
         self.outfit_suggestions = {
             "happy": {
-                "sunny": ["bright sundress", "colorful t-shirt and shorts", "light linen outfit"],
-                "rainy": ["yellow raincoat", "jeans and waterproof boots", "cute umbrella accessory"],
-                "cold": ["cheerful sweater", "wool scarf and beanie", "layered outfit with boots"],
-                "hot": ["flowy summer dress", "tank top and shorts", "light pastel blouse"]
+                "sunny": [Outfit("bright sundress"), Outfit("colorful t-shirt and shorts"), Outfit("light linen outfit")],
+                "rainy": [Outfit("yellow raincoat"), Outfit("jeans and waterproof boots"), Outfit("cute umbrella accessory")],
+                "cold": [Outfit("cheerful sweater"), Outfit("wool scarf and beanie"), Outfit("layered outfit with boots")],
+                "hot": [Outfit("flowy summer dress"), Outfit("tank top and shorts"), Outfit("light pastel blouse")]
             },
             "calm": {
-                "sunny": ["light blue shirt", "comfortable jeans", "soft cardigan"],
-                "rainy": ["cozy hoodie", "rainproof jacket", "soft scarf"],
-                "cold": ["oversized sweater", "corduroy pants", "knit beanie"],
-                "hot": ["cotton jumpsuit", "linen trousers and top", "simple tank top"]
+                "sunny": [Outfit("light blue shirt"), Outfit("comfortable jeans"), Outfit("soft cardigan")],
+                "rainy": [Outfit("cozy hoodie"), Outfit("rainproof jacket"), Outfit("soft scarf")],
+                "cold": [Outfit("oversized sweater"), Outfit("corduroy pants"), Outfit("knit beanie")],
+                "hot": [Outfit("cotton jumpsuit"), Outfit("linen trousers and top"), Outfit("simple tank top")]
             },
             "excited": {
-                "sunny": ["bright graphic tee", "denim shorts", "sneakers"],
-                "rainy": ["water-resistant jacket", "fun patterned boots", "rain boots with a pop of color"],
-                "cold": ["bold colored jacket", "jeans with patches", "chunky scarf"],
-                "hot": ["colorful tank top", "high-waisted shorts", "floral skirt"]
+                "sunny": [Outfit("bright graphic tee"), Outfit("denim shorts"), Outfit("sneakers")],
+                "rainy": [Outfit("water-resistant jacket"), Outfit("fun patterned boots"), Outfit("rain boots with a pop of color")],
+                "cold": [Outfit("bold colored jacket"), Outfit("jeans with patches"), Outfit("chunky scarf")],
+                "hot": [Outfit("colorful tank top"), Outfit("high-waisted shorts"), Outfit("floral skirt")]
             },
             "sad": {
-                "sunny": ["cozy oversized sweater", "jeans", "slouchy beanie"],
-                "rainy": ["long cardigan", "dark raincoat", "soft boots"],
-                "cold": ["soft hoodie", "thermal leggings", "fuzzy socks"],
-                "hot": ["loose, comfortable t-shirt", "simple skirt", "casual sandals"]
+                "sunny": [Outfit("cozy oversized sweater"), Outfit("jeans"), Outfit("slouchy beanie")],
+                "rainy": [Outfit("long cardigan"), Outfit("dark raincoat"), Outfit("soft boots")],
+                "cold": [Outfit("soft hoodie"), Outfit("thermal leggings"), Outfit("fuzzy socks")],
+                "hot": [Outfit("loose, comfortable t-shirt"), Outfit("simple skirt"), Outfit("casual sandals")]
             },
             "anxious": {
-                "sunny": ["relaxed hoodie", "baggy pants", "slip-on sneakers"],
-                "rainy": ["windbreaker jacket", "athletic shoes", "soft scarf"],
-                "cold": ["oversized puffer jacket", "comfy leggings", "fleece-lined gloves"],
-                "hot": ["loose-fitting blouse", "linen shorts", "comfortable sneakers"]
+                "sunny": [Outfit("relaxed hoodie"), Outfit("baggy pants"), Outfit("slip-on sneakers")],
+                "rainy": [Outfit("windbreaker jacket"), Outfit("athletic shoes"), Outfit("soft scarf")],
+                "cold": [Outfit("oversized puffer jacket"), Outfit("comfy leggings"), Outfit("fleece-lined gloves")],
+                "hot": [Outfit("loose-fitting blouse"), Outfit("linen shorts"), Outfit("comfortable sneakers")]
             },
             "confident": {
-                "sunny": ["sharp blazer", "tailored pants", "sleek boots"],
-                "rainy": ["stylish trench coat", "high heels", "elegant scarf"],
-                "cold": ["fitted wool coat", "smart trousers", "leather gloves"],
-                "hot": ["vibrant dress", "strappy sandals", "sun hat"]
+                "sunny": [Outfit("sharp blazer"), Outfit("tailored pants"), Outfit("sleek boots")],
+                "rainy": [Outfit("stylish trench coat"), Outfit("high heels"), Outfit("elegant scarf")],
+                "cold": [Outfit("fitted wool coat"), Outfit("smart trousers"), Outfit("leather gloves")],
+                "hot": [Outfit("vibrant dress"), Outfit("strappy sandals"), Outfit("sun hat")]
             },
             "nervous": {
-                "sunny": ["casual button-up shirt", "comfortable shorts", "casual loafers"],
-                "rainy": ["simple rain jacket", "comfortable boots", "beanie"],
-                "cold": ["fleece zip-up jacket", "jeans", "scarf"],
-                "hot": ["loose t-shirt", "denim skirt", "sandals"]
+                "sunny": [Outfit("casual button-up shirt"), Outfit("comfortable shorts"), Outfit("casual loafers")],
+                "rainy": [Outfit("simple rain jacket"), Outfit("comfortable boots"), Outfit("beanie")],
+                "cold": [Outfit("fleece zip-up jacket"), Outfit("jeans"), Outfit("scarf")],
+                "hot": [Outfit("loose t-shirt"), Outfit("denim skirt"), Outfit("sandals")]
             }
         
         }
@@ -108,7 +124,8 @@ class MoodOutfitSelector:
             outfits = self.outfit_suggestions[mood][weather]
             return random.choice(outfits)
         except KeyError:
-            return "No outfit suggestions available for this combination."        
+            return "No outfit suggestions available for this combination."   
+             
 def main():
 
     print("Welcome to your personal outfit finder!")
