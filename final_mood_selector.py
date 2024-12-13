@@ -131,14 +131,32 @@ def main():
     print("Welcome to your personal outfit finder!")
     selector = MoodOutfitSelector()
 
-    # this gets user inputs
-    mood = selector.get_user_mood()
-    weather = selector.get_weather_context()
-    uplift = input("Would you like an outfit to boost your mood? (yes/no): ").lower()
+    while True:  # Loop starts here
+        # This gets user inputs
+        mood = selector.get_user_mood()
+        weather = selector.get_weather_context()
+        uplift = input("Would you like an outfit to boost your mood? (yes/no): ").lower()
 
-    # this will uggest outfit
-    outfit = selector.suggest_outfit(mood, weather, uplift)
-    print(f"\nHere's your suggested outfit: {outfit}")
+        # This will suggest an outfit
+        outfit = selector.suggest_outfit(mood, weather, uplift)
+        print(f"\nHere's your suggested outfit: {outfit}")
+
+        # Ask if the user wants to save their outfit
+        save = input("Would you like to save this outfit to your favorites? (yes/no): ").lower()
+        if save == "yes":
+            selector.save_outfit(outfit)
+        
+        # Ask if the user wants to view their outfit
+        view = input("Would you like to view your saved outfits? (yes/no): ").lower()
+        if view == "yes":
+            selector.view_saved_outfits()
+
+
+        # Ask if the user wants to restart
+        restart = input("\nWould you like to try again? (yes/no): ").lower()
+        if restart != "yes":
+            print("Thank you for using the Mood Outfit Selector! Goodbye!")
+            break  
 
 def remove_outfit(self, mood, weather, outfit):
         """
